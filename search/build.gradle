@@ -1,0 +1,23 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.3.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.graduation'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//校验
+	compile('org.springframework.boot:spring-boot-starter-validation')
+	//事物注解
+	compile ('org.springframework:spring-tx:4.3.10.RELEASE')
+	compile project(":common")
+}

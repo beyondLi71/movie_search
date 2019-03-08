@@ -1,0 +1,54 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.3.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.graduation'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	orikaVersion = '1.5.2'
+	fastJsonVersion = '1.2.41'
+	lombokVersion = '1.16.18'
+	swaggerVersion='2.7.0'
+	langVersion='3.7'
+	collectsVersion='3.2.2'
+	beanUtilsVersion='1.9.3'
+	ioVersion='2.6'
+	springCloudVersion = 'Edgware.SR2'
+	druidVersion = '1.1.5'
+	mybatisVersion = '1.3.1'
+	pagehelperVersion='4.1.0'
+	EncodeVersion='4.11'
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	//swagger依赖
+	compile("io.springfox:springfox-swagger-ui:${swaggerVersion}")
+	compile("io.springfox:springfox-swagger2:${swaggerVersion}")
+
+	compile("ma.glasnost.orika:orika-core:$orikaVersion")
+	compile("org.projectlombok:lombok:$lombokVersion")
+	compile("com.alibaba:fastjson:$fastJsonVersion")
+	compile("org.apache.commons:commons-lang3:$langVersion")
+	compile("commons-collections:commons-collections:$collectsVersion")
+	compile("commons-beanutils:commons-beanutils:$beanUtilsVersion")
+	compile("commons-io:commons-io:$ioVersion")
+	//springboot jacson支持jsr310 data/time
+	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+	//aop
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	//mybatis
+	compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisVersion}")
+	compile("com.alibaba:druid:$druidVersion")
+	compile("com.github.pagehelper:pagehelper:${pagehelperVersion}")
+	runtime('mysql:mysql-connector-java')
+}
